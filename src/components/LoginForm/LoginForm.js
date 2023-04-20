@@ -1,5 +1,7 @@
 import { useDispatch } from "react-redux";
 import { logIn } from "redux/auth/operations";
+import { TextField, Button, Box } from '@mui/material'
+
 
 
 export const LoginForm = () => {
@@ -17,15 +19,11 @@ export const LoginForm = () => {
 
     return (
         <form onSubmit={handleSubmit} autoComplete="off">
-        <label>
-        Email
-            <input type="email" name="email"/>
-        </label>
-        <label>
-        Password
-        <input type="password" name="password" />
-        </label>
-        <button type="submit">Log in</button>
+        <Box sx={{display:'flex', gap: '20px', flexDirection: 'column', maxWidth:'400px', margin:'auto'}}>        
+        <TextField label='Email' type="email" name="email"/>
+        <TextField label='Password' type="password" name="password" autoComplete="on"/>
+        <Button sx={{maxWidth:'200px',width:'100%' , margin:'auto'}} variant="outlined" type="submit">Log in</Button>
+        </Box>
         </form>
     )
 }

@@ -1,5 +1,8 @@
 import { useDispatch } from "react-redux";
 import { register } from "redux/auth/operations";
+import { TextField, Button, Box } from '@mui/material'
+
+
 
 
 export const RegisterForm = () => {
@@ -20,19 +23,13 @@ export const RegisterForm = () => {
 
     return (
         <form onSubmit={handleSubmit} autoComplete="off">
-        <label>
-        UserName
-        <input type="text" name="name"/>
-        </label>
-        <label>
-        Email
-        <input type="email" name="email"/>
-        </label>
-        <label>
-        Password
-        <input type="password" name="password" />
-        </label>
-        <button type="submit">Log in</button>
+        <Box sx={{display:'flex', gap: '20px', flexDirection: 'column', maxWidth:'400px', margin:'auto'}}>
+        <TextField label='User Name' type="text" name="name" variant="standard"/>
+        <TextField label='Email' type="email" name="email" variant="standard"/>   
+        <TextField label='Password' type="password" name="password" autoComplete="on" variant="standard"/>
+        <Button size="large" variant="contained" type="submit">Register</Button>
+        </Box>
         </form>
+
     )
 }

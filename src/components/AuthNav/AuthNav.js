@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
+import {Button} from '@mui/material'
 
 export const AuthNav = () => {
     return (
         <div>
         <NavLink style={{marginRight:50}} to="/register">
-            Register
+            <Button variant="contained">Register</Button>
         </NavLink>
         <NavLink to="/login">
-            LogIn
+        <Button variant="contained">Log In</Button>
         </NavLink>
         </div>
     )
