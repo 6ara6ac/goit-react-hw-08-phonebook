@@ -1,19 +1,18 @@
+import React from "react"
 import { Outlet } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
 import { ButtonAppBar } from './AppBar/AppBar';
 import { Suspense } from 'react';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 
 export const Layout = () => {
   return (
-    <Box sx={{ bgcolor: '#f3f4f5', padding:'20px 60px', height:'100vh' }}>
+    <Box sx={{margin:0}}>
       <ButtonAppBar />
-      <Container sx={{marginTop:'100px'}}>
+      <Box sx={{display:'grid',justifyContent:'center', paddingTop:'100px', margin:0, height:'100vh' }}>
       <Suspense fallback={null}>
         <Outlet/>
       </Suspense>
-      <Toaster position="top-right" reverseOrder={false} />
-      </Container>
+      </Box>
     </Box>
   );
 };

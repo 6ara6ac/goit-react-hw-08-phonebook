@@ -1,20 +1,27 @@
-import { selectFilter } from "redux/contacts/selectors"
-import { useDispatch, useSelector } from "react-redux"
-import { changeFilter } from "redux/contacts/filterSlice"
-import { FilterStyled, Input } from "./Filter.styled"
-import { TextField } from '@mui/material'
+import React from 'react';
+import Box from '@mui/material/Box';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
-
-export const Filter = () => {
-  const dispatch = useDispatch()
-  const filter = useSelector(selectFilter)
+export const Filter = ({filter, filterInput}) => {
   
-  const handleFilterChange = ({currentTarget: {value}}) => {
-    dispatch(changeFilter(value))
-  }
- 
-
-  return <FilterStyled>
-  <Input as={TextField} label='filter' type="text" name="filter" value={filter} onChange={handleFilterChange} sx={{width:'100%', marginBottom:'30px'}}/>
-  </FilterStyled>
+    return (
+      <Box sx={{display:'grid', justifyContent:'center'}}>
+        <FormControl fullWidth sx={{ m:1}}>
+          <Select
+            value={filter}
+            label="Age"
+            onChange={filterInput}
+            displayEmpty
+            autoWidth
+            inputProps={{ 'aria-label': 'Without label' }}
+          >
+            <MenuItem value={'show all'}>show all</MenuItem>
+            <MenuItem value={'follow'}>follow</MenuItem>
+            <MenuItem value={'following'}>following</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+    );
 }
